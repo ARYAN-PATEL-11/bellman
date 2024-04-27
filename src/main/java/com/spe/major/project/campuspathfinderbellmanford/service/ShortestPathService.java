@@ -4,12 +4,16 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spe.major.project.campuspathfinderbellmanford.model.ShortestPathResult;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
 public class ShortestPathService {
+
+    private static final Logger logger = LogManager.getLogger(ShortestPathService.class);
 
     private static final Map<String, List<Edge>> graph = new HashMap<>();
 
@@ -91,11 +95,15 @@ public class ShortestPathService {
                     int weight = edge.weight;
                     if (distances.get(u) != Integer.MAX_VALUE && distances.get(u) + weight < distances.get(v)) {
                         // Negative cycle found
+                        logger.error("Negative cycle detected");
                         throw new RuntimeException("Negative cycle detected");
                     }
                 }
             }
         }
+
+        // Log normal execution flow
+        logger.info("Shortest path calculated from {} to {}", start, end);
 
         List<String> shortestPath = new ArrayList<>();
         String current = end;
@@ -118,6 +126,7 @@ public class ShortestPathService {
             return parsedGraph;
         } catch (JsonProcessingException e) {
             // Handle parsing exception
+            logger.error("Error parsing graph data", e);
             e.printStackTrace();
             return null;
         }
@@ -134,5 +143,3 @@ public class ShortestPathService {
         }
     }
 }
-
-
