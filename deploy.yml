@@ -1,0 +1,32 @@
+---
+- name: Deploy Spring Boot Bellman Application
+  hosts: localhost
+  remote_user: your_username
+  become: true
+  tasks:
+    - name: Stop and Remove Existing Docker Container
+      shell: docker stop spe_mini_project && docker rm spe_mini_project
+      ignore_errors: yes
+
+    - name: Pull Docker Image from Docker Hub
+      docker_image:
+        name: "aryanpatel111/spe_mini_project"
+        source: pull
+      register: docker_pull_result
+
+    - name: Display Docker Pull Result
+      debug:
+        var: docker_pull_result
+
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+
+    - name: Run Docker Container
+      docker_container:
+        name: spe_mini_project
+        image: aryanpatel111/spe_mini_project
+        state: started
+        restart_policy: always
+        detach: yes
