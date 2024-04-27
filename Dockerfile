@@ -8,4 +8,4 @@ WORKDIR /app
 COPY target/CampusPathFinderBellmanFord-with-dependencies.jar /app/
 
 # Command to run the application when the container starts
-#CMD ["java", "-jar", "CampusPathFinderBellmanFord-with-dependencies.jar"]
+CMD ["java", "-jar", "CampusPathFinderBellmanFord-with-dependencies.jar"]
