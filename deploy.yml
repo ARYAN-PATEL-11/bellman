@@ -2,7 +2,7 @@
 - name: Deploy Spring Boot Bellman Application
   hosts: localhost
   remote_user: aryanpatel
-  become: true
+  become: false
   tasks:
     - name: Stop and Remove Existing Docker Container
       shell: docker stop bellman-container && docker rm bellman-container
