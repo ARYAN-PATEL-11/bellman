@@ -2,7 +2,6 @@
 - name: Deploy Spring Boot Bellman Application
   hosts: localhost
   remote_user: aryanpatel
-  become: false
   tasks:
     - name: Pull Docker Image from Docker Hub
       docker_image:
@@ -26,3 +25,4 @@
         state: started
         restart_policy: always
         detach: yes
+      timeout: 120  # Increase timeout to 2 minutes
