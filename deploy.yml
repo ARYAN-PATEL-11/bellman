@@ -2,13 +2,9 @@
 - name: Deploy Spring Boot Bellman Application
   hosts: localhost
   remote_user: aryanpatel
----
-- name: Deploy Docker image and Kubernetes resources for spemajorf
-  hosts: localhost
-  remote_user: aryanpatel
-  become: false
   tasks:
-    - name: Run Kubernetes Deployment files
+    - name: Deploy Docker image and Kubernetes resources for spemajorf
+      become: false
       shell: kubectl apply -f "{{ item }}"
       with_fileglob:
         - kubernetes/*.yaml
