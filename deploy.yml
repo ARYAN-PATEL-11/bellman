@@ -2,27 +2,13 @@
 - name: Deploy Spring Boot Bellman Application
   hosts: localhost
   remote_user: aryanpatel
+---
+- name: Deploy Docker image and Kubernetes resources for spemajorf
+  hosts: localhost
+  remote_user: aryanpatel
+  become: false
   tasks:
-    - name: Pull Docker Image from Docker Hub
-      docker_image:
-        name: "aryanpatel111/bellman-shortest-path-finder"
-        source: pull
-      register: docker_pull_result
-
-    - name: Display Docker Pull Result
-      debug:
-        var: docker_pull_result
-
-    - name: Start Docker service
-      service:
-        name: docker
-        state: started
-
-    - name: Run Docker Container
-      docker_container:
-        name: bellman-container
-        image: aryanpatel111/bellman-shortest-path-finder
-        state: started
-        restart_policy: always
-        detach: yes
-      timeout: 120  # Increase timeout to 2 minutes
+    - name: Run Kubernetes Deployment files
+      shell: kubectl apply -f "{{ item }}"
+      with_fileglob:
+        - kubernetes/*.yaml

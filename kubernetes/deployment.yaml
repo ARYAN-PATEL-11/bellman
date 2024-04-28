@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bellman-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bellman
+  template:
+    metadata:
+      labels:
+        app: bellman
+    spec:
+      containers:
+        - name: bellman-container
+          image: aryanpatel111/bellman-shortest-path-finder
+          ports:
+            - containerPort: 3001  # Assuming your Spring Boot app listens on port 8080
