@@ -5,8 +5,6 @@
   tasks:
     - name: Deploy Docker image and Kubernetes resources for spemajorf
       become: false
-      tasks:
-        - name: Run Kubernetes Deployment files
-          shell: kubectl apply -f "{{ item }}"
-          with_fileglob:
-            - kubernetes/*.yaml
+      shell: kubectl apply -f "{{ item }}"
+      with_fileglob:
+        - kubernetes/*.yaml
