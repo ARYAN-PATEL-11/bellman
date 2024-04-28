@@ -7,6 +7,6 @@ spec:
     app: bellman
   ports:
     - protocol: TCP
-      port: 3001  # Port your application is listening on
+      port: 3001  # Port your application is listening
       targetPort: 3001  # Port your container is exposing
   type: LoadBalancer  # Expose the service externally using a LoadBalancer
