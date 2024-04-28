@@ -19,6 +19,11 @@ public class ShortestPathController {
         this.shortestPathService = shortestPathService;
     }
 
+    @GetMapping("/")
+    public String helloWorld() {
+        return "Hello,World!";
+    }
+
     @GetMapping("/shortest-path")
     public ShortestPathResult findShortestPath(
             @RequestParam("start") String start,
