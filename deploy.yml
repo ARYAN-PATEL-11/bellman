@@ -4,8 +4,6 @@
   remote_user: aryanpatel
   tasks:
     - name: Deploy Docker image and Kubernetes resources for spemajorf
-      hosts: localhost
-      remote_user: aryanpatel
       become: false
       tasks:
         - name: Run Kubernetes Deployment files
