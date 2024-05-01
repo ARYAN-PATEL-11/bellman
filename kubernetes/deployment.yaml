@@ -20,7 +20,6 @@
 
 
 
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -37,6 +36,6 @@ spec:
     spec:
       containers:
         - name: backend-container
-          image: your-backend-image:tag
+          image: aryanpatel111/bellman-shortest-path-finder
           ports:
-            - containerPort: 9191
+            - containerPort: 9191
