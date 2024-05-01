@@ -38,4 +38,4 @@ spec:
         - name: backend-container
           image: aryanpatel111/bellman-shortest-path-finder
           ports:
-            - containerPort: 9191
+            - containerPort: 9191
