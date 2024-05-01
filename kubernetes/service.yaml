@@ -1,12 +1,27 @@
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: bellman-service
+#spec:
+#  selector:
+#    app: bellman
+#  ports:
+#    - protocol: TCP
+#      port: 3001  # Port your application is listening
+#      targetPort: 3001  # Port your container is exposing
+#  type: LoadBalancer  # Expose the service externally using a LoadBalancer
+
+
+
+
 apiVersion: v1
 kind: Service
 metadata:
-  name: bellman-service
+  name: backend-service
 spec:
   selector:
-    app: bellman
+    app: backend
   ports:
     - protocol: TCP
-      port: 3001  # Port your application is listening
-      targetPort: 3001  # Port your container is exposing
-  type: LoadBalancer  # Expose the service externally using a LoadBalancer
+      port: 9191
+      targetPort: 9191
