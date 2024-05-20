@@ -39,3 +39,10 @@ spec:
           image: aryanpatel111/bellman-shortest-path-finder
           ports:
             - containerPort: 9191
+          resources:
+            requests:
+              cpu: "100m"  # Request 100 milliCPU (0.1 CPU)
+              memory: "512Mi"  # Minimum request of 512 Mebibytes of memory
+            limits:
+              cpu: "200m"  # Limit to 200 milliCPU (0.2 CPU)
+              memory: "1Gi"
