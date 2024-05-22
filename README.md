@@ -1,4 +1,4 @@
-# Frontend for IIITB Pathfinder
+# Backend for IIITB Pathfinder - BellmanFord Algorithm
 
 ## DevOps Tools Required
 - Kubectl
@@ -11,7 +11,7 @@
 ## Execution
 - Create a Jenkins pipeline for the same using the GitHub URL of this repository, then you can kubectl command to get the generated services.
 
-- From here select the service with spemajorf and  get the URL for the same using minikube ip address and port as shown.
+- From here select the backend-service and  get the URL for the same using minikube ip address and port as shown.
 
 <p align="center">
   <img width="513" alt="Kubectl services" src="https://github.com/23subbhashit/SPEmajorF/assets/43717493/8354e2c7-ad91-4799-8133-fcc459338fcf">
