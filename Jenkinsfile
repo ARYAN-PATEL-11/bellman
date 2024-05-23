@@ -69,7 +69,7 @@ pipeline {
                     sh 'pip3 install elasticsearch'
 
                     // Run the Python script to upload logs
-                    dir('/home/aryanpatel/Desktop/demoBellman/bellman') {
+                    dir('/var/lib/jenkins/workspace/bellmanFordBackend') {
                         sh 'python3 parsernew2.py'
                     }
                 }
